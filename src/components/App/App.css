@@ -5,7 +5,7 @@ body,
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin: 0px;
 }
 
@@ -29,10 +29,10 @@ Button
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  border-color: #014041;
+  border-color: #000000;
   border-width: 1px 1px 3px;
-  border-radius: 4px;
-  background-color: #00acb0;
+  border-radius: 100px;
+  background-color: #ff2b2b;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -55,7 +55,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #fe8d8d;
   text-decoration: none;
 }
 
