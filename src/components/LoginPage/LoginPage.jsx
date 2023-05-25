@@ -17,7 +17,7 @@ function LoginPage() {
             history.push('/registration');
           }}
         >
-          Register
+          wegister bwutton
         </button>
       </center>
     </div>
