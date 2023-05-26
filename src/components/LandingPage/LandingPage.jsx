@@ -19,7 +19,7 @@ function LandingPage() {
 
   return (
     <div className="container">
-      <h2>{heading}</h2>
+      <h1>{heading}</h1>
 
       <div className="grid">
 
@@ -35,16 +35,15 @@ function LandingPage() {
         </div>
 
         <div className="grid-col grid-col_8">
+          <h2>What is Prime Novel Academy?</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
-            ut ex molestie blandit. Etiam et turpis sit amet risus mollis
-            interdum. Suspendisse et justo vitae metus bibendum fringilla sed
-            sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio
-            elementum eget. Praesent efficitur eros vitae nunc interdum, eu
-            interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
-            Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
+          Prime Novel Academy is a virtual experience where you get to interact 
+          and talk with virtual characters in Prime Novel Academy! Share your name 
+          and explore different interactions with various characters on the school 
+          grounds. Talk with everyone and make new friends! 
+          You can choose between two different options which could lead to different 
+          dialogs and new interactions. Login now and start your journey at your new school, 
+          Prime Novel Academy!
           </p>
 
           <p>

@@ -36,7 +36,7 @@ function App() {
       <div className='landing-page-css'>
 
 
-        {/* <Nav /> */}
+        <Nav />
 
 
         <Switch>
