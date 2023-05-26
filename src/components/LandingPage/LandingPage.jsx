@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
 
-//
+// Importing AI Fountain Background Image
+import aiFountain from '../../images/blurred_ai_fountain.png';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
+  const [heading, setHeading] = useState('Welcome to Prime Novel Academy!');
   const history = useHistory();
 
   const onLogin = (event) => {
     history.push('/login');
+
   };
 
   return (

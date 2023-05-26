@@ -20,8 +20,17 @@ Container
 
 .container {
   padding: 20px;
+
 }
 
+.landing-page-css {
+  /* background image for landing page */
+  background: url(../../images/blurred_ai_fountain.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
