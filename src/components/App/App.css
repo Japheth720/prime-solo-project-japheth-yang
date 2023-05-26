@@ -109,9 +109,10 @@ Form Treatment
   max-width: 100%;
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #efefef;
-  border-radius: 3px;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  background-color: #ff9999b8;
+  border-radius: 40px;
+  /* box-shadow: 0 2px 2px rgb(255, 255, 255); */
+  outline: 5px solid #000000;
 }
 
 input {
