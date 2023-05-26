@@ -3,7 +3,7 @@ Grid
 -------------------------------------------------------------------------------- */
 
 .grid {
-  display: flex;
+  /* display: ; */
   flex: 0 1 auto;
   /* defaults to 'row' */
   flex-direction: row;
