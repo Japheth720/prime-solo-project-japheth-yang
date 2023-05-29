@@ -101,6 +101,12 @@ function App() {
             }
           </Route>
 
+          <ProtectedRoute exact path='/character'>
+
+
+
+          </ProtectedRoute>
+
           <Route
             exact
             path="/home"

@@ -2,7 +2,11 @@ import React from "react";
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
+
+
 function CharacterPage () {
+
+    const history = useHistory();
 
     return (
     
@@ -12,3 +16,5 @@ function CharacterPage () {
 
     );
 };
+
+export default CharacterPage;
