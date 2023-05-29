@@ -7,8 +7,8 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   return (
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
+      <h2>Welcome {user.username} to Prime Novel Academy!</h2>
+      <p>Press Start to Begin!</p>
       <LogOutButton className="btn" />
     </div>
   );
