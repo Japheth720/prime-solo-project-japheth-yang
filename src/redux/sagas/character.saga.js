@@ -40,12 +40,34 @@ function* addGame(action) {
 
 }
 
+function* deleteCharacter(action) {
+    try{
+
+        const item = yield axios({
+
+            method: 'DELETE',
+            url: `/character/${action.payload}`
+
+        })
+
+        console.log('Delete Character Sagas', item.data);
+        yield put({ type: 'FETCH_CHARACTERS'})
+
+    } catch {
+
+        console.log('DELETE Sagas Error', error)
+
+    }
+
+};
+
 
 function* characterSaga() {
 
     yield takeLatest('FETCH_CHARACTERS', fetchCharacters);
     yield takeLatest('ADD_SAVE', addGame);
-
+    yield takeLatest('DELETE_CHARACTER', deleteCharacter);
+    
 }
 
 export default characterSaga;
