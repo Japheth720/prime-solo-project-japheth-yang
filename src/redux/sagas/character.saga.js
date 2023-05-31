@@ -19,10 +19,32 @@ function* fetchCharacters() {
     }
 }
 
+function* addGame(action) {
+
+    try{
+        // Should create variable for action.payload
+        const game = yield axios({
+            method: 'POST',
+            url: '/character',
+            data: action.payload
+        })
+
+        console.log('POST for character adding game works yey', game.data);
+        yield put({ type: 'FETCH_CHARACTERS' });
+        
+    } catch {
+
+        console.log('POST Character Error', error)
+
+    }
+
+}
+
 
 function* characterSaga() {
 
     yield takeLatest('FETCH_CHARACTERS', fetchCharacters);
+    yield takeLatest('ADD_SAVE', addGame);
 
 }
 

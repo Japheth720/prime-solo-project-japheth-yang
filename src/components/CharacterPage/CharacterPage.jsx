@@ -11,26 +11,30 @@ function CharacterPage() {
 
     const characters = useSelector((store) => store.characters);
 
-    console.log('CharacterPage Component', characters);
+  
 
     const history = useHistory();
 
     const [gameSave, setGameSave] = useState("");
+    // let newGameId = characters.length / 3;
 
 
     useEffect(() => {
 
         dispatch({ type: 'FETCH_CHARACTERS' });
-
+        console.log('CharacterPage Component', characters);
     }, [dispatch]);
 
     function addGameSave(event) {
         event.preventDefault;
+
+        console.log('gameSave value:', gameSave);
         dispatch({
 
             type: 'ADD_SAVE',
             payload: {
                 game_save: gameSave,
+                // new_game_id: newGameId + 1,  
             }
 
         })
@@ -45,9 +49,9 @@ function CharacterPage() {
             <h1>this is character page</h1>
 
             <form onSubmit={addGameSave}>
-                
+
                 <input
-                    placeholder="game save"
+                    placeholder="Add a New Save File!"
                     typeof="text"
                     value={gameSave}
                     onChange={(event) => setGameSave(event.target.value)}
@@ -56,19 +60,41 @@ function CharacterPage() {
                 <button type='submit'>Add New Game</button>
             </form>
 
-            {characters.map((item) => {
-                return (<table>
-                    <tr>
-                        <th>{item.game_id}</th>
-                        <th>{item.user_id}</th>
-                        <th>{item.username}</th>
-                        <th>{item.save_name}</th>
-                        <button>SELECT</button>
-                        <button>DELETE</button>
-                    </tr>
 
-                </table>);
-            })}
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>game_id</th>
+                        <th>user_id</th>
+                        <th>username</th>
+                        <th>save_name</th>
+                        <th>select_button</th>
+                        <th>delete_button</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {characters.map((item) => {
+
+                        return (
+                            <tr>
+                                <td>{item.game_id}</td>
+                                <td>{item.user_id}</td>
+                                <td>{item.username}</td>
+                                <td>{item.save_name}</td>
+                                <td><button>SELECT</button></td>
+                                <td><button>DELETE</button></td>
+                            </tr>
+                        )
+
+                    })}
+
+                </tbody>
+
+            </table>
+
 
         </div>
 
