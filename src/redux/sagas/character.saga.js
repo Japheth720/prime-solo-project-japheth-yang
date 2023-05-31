@@ -8,7 +8,8 @@ function* fetchCharacters() {
 
         const character = yield axios.get('/api/character');
         console.log('GET fetchCharacters Sagas', character.data);
-        // yield put({ type: 'SET_CHARACTERS', payload: character.data });
+        const theCharacters = character.data;
+        yield put({ type: 'SET_CHARACTERS', payload: theCharacters });
 
     } catch {
 
