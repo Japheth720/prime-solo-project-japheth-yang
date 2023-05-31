@@ -8,12 +8,14 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function CharacterPage () {
 
     const dispatch = useDispatch();
-    
+
+    const characters = useSelector(store => store.characters);
+
     const history = useHistory();
 
     useEffect(() => {
 
-        dispatch({ type: 'GET_CHARACTERS'});
+        dispatch({ type: 'FETCH_CHARACTERS'});
 
     }, []);
 
@@ -21,6 +23,7 @@ function CharacterPage () {
     
         <div>
             <h1>this is character page</h1>
+            <h2>Testing If Data Was Sent: {characters.save_name}</h2>
         </div>
 
     );

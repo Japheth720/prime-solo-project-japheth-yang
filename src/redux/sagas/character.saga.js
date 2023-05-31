@@ -1,12 +1,12 @@
 import axios from "axios";
-import { put, takeEvery, takeLatest } from "redux-saga/effects";
+import { put, takeLatest } from "redux-saga/effects";
 
 
 function* fetchCharacters() {
 
     try{
 
-        const character = yield axios.get('/api/character');
+        const character = yield axios.get('/character');
         console.log('GET fetchCharacters Sagas', character.data);
 
         const theCharacters = character.data;
@@ -22,7 +22,7 @@ function* fetchCharacters() {
 
 function* characterSaga() {
 
-    yield takeLatest('FETCH_CHARACTER', fetchCharacters);
+    yield takeLatest('FETCH_CHARACTERS', fetchCharacters);
 
 }
 

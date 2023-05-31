@@ -1,9 +1,9 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-const {
-    rejectUnauthenticated,
-  } = require('../modules/authentication-middleware');
+// const {
+//     rejectUnauthenticated,
+//   } = require('../modules/authentication-middleware');
 
 /**
  * GET route template
@@ -13,30 +13,29 @@ router.get('/', (req, res) => {
   console.log('inside the character GET route');
 
   const query = `
-  
   SELECT
-  g.id game_id
-  , g.user_id
-  , u.username
-  , g.save_name
-  , gnpc.id game_npc_id
-  , gnpc.npc_reputation
-  , npc.id npc_id
-  , npc.npc_name
-  , npc.graphic_img_url
-  , npc.initial_response
-  , npc.good_response
-  , npc.bad_response
+	game_id
+	, game.user_id
+	, "user".username
+    , game.save_name
+	, game_npcs.id
+	, game_npcs.npc_reputation
+	, npcs.id
+	, npcs.npc_name
+    , npcs.graphic_img_url
+    , npcs.initial_response
+    , npcs.good_response
+    , npcs.bad_response
 FROM
-  game g
-  , game_npcs gnpc
-  , npcs npc
-  , "user" u
+	game
+	, game_npcs
+	, npcs
+	, "user"
 WHERE
-  g.id = gnpc.game_id
-  AND gnpc.npc_id = npc.id
-  AND u.id = g.user_id
-  AND g.save_name = 'LungTest';
+	game.id = game_npcs.game_id
+	AND game_npcs.npc_id = npcs.id
+	AND "user".id = game.user_id
+	;
   `;
 
   pool.query(query)
