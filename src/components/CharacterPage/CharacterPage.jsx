@@ -77,7 +77,6 @@ function CharacterPage() {
                 <tbody>
 
                     {characters.map((item) => {
-
                         return (
                             <tr>
                                 <td>{item.game_id}</td>

@@ -8,37 +8,22 @@ const {
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     // GET route code here
     console.log('inside the character GET route');
+    const user_id = req.user.id;
 
     const query = `
-  SELECT
-	game_id
-	, game.user_id
-	, "user".username
-    , game.save_name
-	, game_npcs.id
-	, game_npcs.npc_reputation
-	, npcs.id
-	, npcs.npc_name
-    , npcs.graphic_img_url
-    , npcs.initial_response
-    , npcs.good_response
-    , npcs.bad_response
-FROM
-	game
-	, game_npcs
-	, npcs
-	, "user"
-WHERE
-	game.id = game_npcs.game_id
-	AND game_npcs.npc_id = npcs.id
-	AND "user".id = game.user_id
-	;
+
+    SELECT game.save_name, SUM(game_npcs.npc_reputation), game.id
+    FROM game
+    JOIN game_npcs ON game.id = game_npcs.game_id
+    WHERE game.user_id = $1
+    GROUP BY game.save_name, game.id;
+    
   `;
 
-    pool.query(query)
+    pool.query(query, [user_id])
         .then(result => {
             res.send(result.rows)
         })
