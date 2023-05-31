@@ -46,24 +46,19 @@ function LandingPage() {
           Prime Novel Academy!
           </p>
 
+          <h2>Who am I?</h2>
           <p>
-            Praesent consectetur orci dui, id elementum eros facilisis id. Sed
-            id dolor in augue porttitor faucibus eget sit amet ante. Nunc
-            consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut
-            finibus metus facilisis. Nullam eget lectus non urna rhoncus
-            accumsan quis id massa. Curabitur sit amet dolor nisl. Proin
-            euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed
-            lobortis augue mi vel felis. Duis ultrices sapien at est convallis
-            congue.
+            Hello there! My name is Japheth Yang, I studied at Prime Digital Academy 
+            and learned how to code in JavaScript, JQuery, and ReactJS! In my spare time, 
+            I like to create funny videos for people to watch on YouTube. My channel name is 
+            ToroKe and I do various things from playing games, to voice acting and many more 
+            fun skills! My goal is to one day entertain and create moments with people that 
+            they'll never forget. I also dream to bring back 1$ McChickens at McDonalds... 
+            SERIOUSLY!! THEY'RE LIKE 3$ PER SANDWICH NOW!!! THIS IS AN OUTRAGE!!!!
           </p>
 
           <p>
-            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
-            Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In
-            vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed
-            sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
-            non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
-            amet nisi.
+            
           </p>
           
         </div>

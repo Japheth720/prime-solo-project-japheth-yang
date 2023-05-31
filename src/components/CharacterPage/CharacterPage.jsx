@@ -5,25 +5,71 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
-function CharacterPage () {
+function CharacterPage() {
 
     const dispatch = useDispatch();
 
-    const characters = useSelector(store => store.characters);
+    const characters = useSelector((store) => store.characters);
+
+    console.log('CharacterPage Component', characters);
 
     const history = useHistory();
 
+    const [gameSave, setGameSave] = useState("");
+
+
     useEffect(() => {
 
-        dispatch({ type: 'FETCH_CHARACTERS'});
+        dispatch({ type: 'FETCH_CHARACTERS' });
 
-    }, []);
+    }, [dispatch]);
+
+    function addGameSave(event) {
+        event.preventDefault;
+        dispatch({
+
+            type: 'ADD_SAVE',
+            payload: {
+                game_save: gameSave,
+            }
+
+        })
+
+        setGameSave("");
+
+    }
 
     return (
-    
+
         <div>
             <h1>this is character page</h1>
-            <h2>Testing If Data Was Sent: {characters.save_name}</h2>
+
+            <form onSubmit={addGameSave}>
+                
+                <input
+                    placeholder="game save"
+                    typeof="text"
+                    value={gameSave}
+                    onChange={(event) => setGameSave(event.target.value)}
+                />
+
+                <button type='submit'>Add New Game</button>
+            </form>
+
+            {characters.map((item) => {
+                return (<table>
+                    <tr>
+                        <th>{item.game_id}</th>
+                        <th>{item.user_id}</th>
+                        <th>{item.username}</th>
+                        <th>{item.save_name}</th>
+                        <button>SELECT</button>
+                        <button>DELETE</button>
+                    </tr>
+
+                </table>);
+            })}
+
         </div>
 
     );
