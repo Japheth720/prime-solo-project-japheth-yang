@@ -43,6 +43,18 @@ function CharacterPage() {
 
     }
 
+    //Delete Character Route
+    const deleteCharacter = (item) => {
+        console.log('deleteCharacter item.id', item.id);
+        dispatch({
+
+            type: 'DELETE_CHARACTER',
+            payload: item.id
+
+        })
+
+    }
+
     return (
 
         <div>
@@ -65,12 +77,10 @@ function CharacterPage() {
 
                 <thead>
                     <tr>
-                        <th>game_id</th>
-                        <th>user_id</th>
-                        <th>username</th>
-                        <th>save_name</th>
-                        <th>select_button</th>
-                        <th>delete_button</th>
+                        <th>Character Name</th>
+                        <th>Friendship Progress</th>
+                        <th>Select!</th>
+                        <th>Delete.</th>
                     </tr>
                 </thead>
 
@@ -79,12 +89,11 @@ function CharacterPage() {
                     {characters.map((item) => {
                         return (
                             <tr>
-                                <td>{item.game_id}</td>
-                                <td>{item.user_id}</td>
-                                <td>{item.username}</td>
+                                
                                 <td>{item.save_name}</td>
+                                <td>{item.sum}/3</td>
                                 <td><button>SELECT</button></td>
-                                <td><button>DELETE</button></td>
+                                <td><button onClick={() => {deleteCharacter(item)}}>DELETE</button></td>
                             </tr>
                         )
 
