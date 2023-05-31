@@ -7,6 +7,8 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function CharacterPage () {
 
+    const dispatch = useDispatch();
+    
     const history = useHistory();
 
     useEffect(() => {
