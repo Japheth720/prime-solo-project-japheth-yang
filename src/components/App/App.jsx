@@ -103,7 +103,7 @@ function App() {
 
           <ProtectedRoute exact path='/character'>
 
-
+            <CharacterPage />
 
           </ProtectedRoute>
 
