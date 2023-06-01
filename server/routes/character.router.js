@@ -125,7 +125,33 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 
 
   //PUT ROUTE
+  //PUT GET Specific Character
+  router.get('/:id', rejectUnauthenticated, (req, res) => {
 
+    const idToUpdate = req.params.id;
+    const user_id = req.user.id;
   
+    const sqlQuery = `
+    SELECT * FROM "game"
+      WHERE "game".id=$1
+        AND "user_id"=$2;
+    `
+  
+    const sqlValues = [idToUpdate, user_id];
+  
+    pool.query(sqlQuery, sqlValues)
+
+      .then((dbRes) => {
+
+        res.send(dbRes.rows[0])
+
+      })
+      .catch((dbErr) => {
+
+        console.log('GETting specifc ID has failed routerside', dbErr);
+        res.sendStatus(500);
+
+      })
+  })
 
 module.exports = router;

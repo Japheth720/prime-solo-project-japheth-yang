@@ -1,10 +1,10 @@
 import axios from "axios";
 import { put, takeLatest } from "redux-saga/effects";
 
-
+//GET Sagas
 function* fetchCharacters() {
 
-    try{
+    try {
 
         const character = yield axios.get('/character');
         console.log('GET fetchCharacters Sagas', character.data);
@@ -19,9 +19,10 @@ function* fetchCharacters() {
     }
 }
 
+//POST Sagas
 function* addGame(action) {
 
-    try{
+    try {
         // Should create variable for action.payload
         const game = yield axios({
             method: 'POST',
@@ -31,7 +32,7 @@ function* addGame(action) {
 
         console.log('POST for character adding game works yey', game.data);
         yield put({ type: 'FETCH_CHARACTERS' });
-        
+
     } catch {
 
         console.log('POST Character Error', error)
@@ -40,8 +41,9 @@ function* addGame(action) {
 
 }
 
+// DELETE Sagas
 function* deleteCharacter(action) {
-    try{
+    try {
 
         const item = yield axios({
 
@@ -51,7 +53,7 @@ function* deleteCharacter(action) {
         })
 
         console.log('Delete Character Sagas', item.data);
-        yield put({ type: 'FETCH_CHARACTERS'})
+        yield put({ type: 'FETCH_CHARACTERS' })
 
     } catch {
 
@@ -61,12 +63,42 @@ function* deleteCharacter(action) {
 
 };
 
+//PUT Sagas
+function* fetchCharacterToEdit(action) {
+
+    try {
+
+        const idToEdit = action.payload;
+
+        const response = yield axios({
+
+            method: 'GET',
+            url: `/character/${idToEdit}`
+
+        })
+
+        const characterToEdit = response.data
+
+        yield put({
+
+            type: 'SET_CHARACTER_TO_EDIT',
+            payload: characterToEdit
+
+        })
+    } catch (err) {
+
+        console.log('Could fetchCharacterToEdit properly ;(', err);
+
+    }
+}
+
 
 function* characterSaga() {
 
     yield takeLatest('FETCH_CHARACTERS', fetchCharacters);
     yield takeLatest('ADD_SAVE', addGame);
     yield takeLatest('DELETE_CHARACTER', deleteCharacter);
+    yield takeLatest('FETCH_CHARACTER_TO_EDIT', fetchCharacterToEdit);
 
 }
 

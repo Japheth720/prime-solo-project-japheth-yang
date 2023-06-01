@@ -26,12 +26,12 @@ function CharacterEditPage() {
     }, [])
 
     // handleUserTyping
-    const handleUserTyping = (e) => {
-        dispatch({
-            type: 'MODIFY_CHARACTER_NAME',
-            payload: e.target.value
-        })
-    }
+    // const handleUserTyping = (e) => {
+    //     dispatch({
+    //         type: 'MODIFY_CHARACTER_NAME',
+    //         payload: e.target.value
+    //     })
+    // }
 
 
     //Finalizing Character Name Change
