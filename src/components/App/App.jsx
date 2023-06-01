@@ -20,7 +20,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
-import CharacterPage from '../CharacterPage/CharacterPage.jsx'
+import CharacterPage from '../CharacterPage/CharacterPage.jsx';
+import CharacterEditPage from '../CharacterEditPage/CharacterEditPage.jsx';
 import './App.css';
 
 function App() {
@@ -106,6 +107,13 @@ function App() {
             <CharacterPage />
 
           </ProtectedRoute>
+
+          <Route exact path="/character/edit/:id">
+
+          <CharacterEditPage />
+
+        </Route>
+
 
           <Route
             exact

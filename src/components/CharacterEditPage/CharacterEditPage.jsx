@@ -48,16 +48,19 @@ function CharacterEditPage() {
 
         <div>
             <h2>Change your Character Name!</h2>
-            <form onSubmit={finalizeThingEdit}>
+            <h3>{params.id}</h3>
+            {/* <form onSubmit={finalizeThingEdit}>
                 <input
                     type="text"
                     value={characterToEdit.name}
                     onChange={handleUserTyping}
                 />
                 <button>Confirm Name Change</button>
-            </form>
+            </form> */}
         </div>
 
     )
 
 }
+
+export default CharacterEditPage;

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
+import CharacterItem from "./CharacterItem";
 
 
 function CharacterPage() {
@@ -90,7 +91,7 @@ function CharacterPage() {
                         return (
                             <tr>
                                 
-                                <td>{item.save_name}</td>
+                                <td><CharacterItem key={item.id} character={item}/>{item.save_name}</td>
                                 <td>{item.sum}/3</td>
                                 <td><button>SELECT</button></td>
                                 <td><button onClick={() => {deleteCharacter(item)}}>DELETE</button></td>
