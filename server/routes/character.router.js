@@ -92,7 +92,38 @@ router.post('/', rejectUnauthenticated, (req, res) => {
             console.log('User registration failed: ', err);
             res.sendStatus(500);
         });
-
 });
+
+
+
+
+// DELETE ROUTE
+
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+
+    const game_id = req.params.id;
+   
+    const sqlValue = [game_id];
+    const queryText = `
+    DELETE FROM "game"
+    WHERE "game".id=$1;
+    `;
+
+    pool
+      .query(queryText, sqlValue)
+
+      .then(() => res.sendStatus(201))
+
+      .catch((err) => {
+
+        console.log('character delete failed: ', err);
+        res.sendStatus(500);
+
+      });
+    
+  });
+
+
+  //PUT ROUTE
 
 module.exports = router;

@@ -67,7 +67,7 @@ function* characterSaga() {
     yield takeLatest('FETCH_CHARACTERS', fetchCharacters);
     yield takeLatest('ADD_SAVE', addGame);
     yield takeLatest('DELETE_CHARACTER', deleteCharacter);
-    
+
 }
 
 export default characterSaga;
