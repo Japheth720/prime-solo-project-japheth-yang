@@ -92,7 +92,7 @@ function* fetchCharacterToEdit(action) {
     }
 }
 
-//PUT Sagas
+//PUT Sagas (THE ONE THAT ACTUALLY CHANGES STUFF YAAAAY)
 function* finalizeCharacterEdit(action) {
 
     try {
