@@ -10,6 +10,7 @@ function CharacterEditPage() {
 
     // Create useSelector for Character To Edit Store HERE:
     // charcterToEdit = useSelector(store => store.)
+    const characterToEdit = useSelector(store => store.characterToEdit);
 
     // useEffect to get the character id that we need to edit
     useEffect(() => {
@@ -26,37 +27,41 @@ function CharacterEditPage() {
     }, [])
 
     // handleUserTyping
-    // const handleUserTyping = (e) => {
-    //     dispatch({
-    //         type: 'MODIFY_CHARACTER_NAME',
-    //         payload: e.target.value
-    //     })
-    // }
+    const handleUserTyping = (e) => {
+        dispatch({
+            type: 'MODIFY_CHARACTER_NAME',
+            payload: e.target.value
+        })
+    }
 
 
     //Finalizing Character Name Change
-    // const finalizeThingEdit = () => {
-    //     dispatch({
-    //         type: 'FINALIZE_CHARACTER_EDIT',
-    //         payload: characterToEdit
-    //     })
-    //     history.push('/user');
-    // }
+    const finalizeThingEdit = () => {
+        dispatch({
+
+            type: 'FINALIZE_CHARACTER_EDIT',
+            payload: characterToEdit
+
+        })
+
+        history.push('/user');
+
+    }
 
 
     return (
 
         <div>
             <h2>Change your Character Name!</h2>
-            <h3>{params.id}</h3>
-            {/* <form onSubmit={finalizeThingEdit}>
+            <h3>{characterToEdit.save_name}</h3>
+            <form onSubmit={finalizeThingEdit}>
                 <input
                     type="text"
                     value={characterToEdit.name}
                     onChange={handleUserTyping}
                 />
                 <button>Confirm Name Change</button>
-            </form> */}
+            </form>
         </div>
 
     )

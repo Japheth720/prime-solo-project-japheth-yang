@@ -143,6 +143,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 
       .then((dbRes) => {
 
+        console.log('dbRes.rows[0] in character specific GET:', dbRes.rows[0])
         res.send(dbRes.rows[0])
 
       })
