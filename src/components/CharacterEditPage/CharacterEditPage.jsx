@@ -40,11 +40,13 @@ function CharacterEditPage() {
         dispatch({
 
             type: 'FINALIZE_CHARACTER_EDIT',
+            // if error arises, look at this
+            // \/ \/ \/ \/ \/ \/ \/ \/
             payload: characterToEdit
 
         })
 
-        history.push('/user');
+        history.push('/character');
 
     }
 

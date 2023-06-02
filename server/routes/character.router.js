@@ -155,4 +155,40 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
       })
   })
 
+
+  //PUT Route (THIS ACTUALLY MANAGES CHANGES YAAAY)
+  router.put('/:id', rejectUnauthenticated, (req,res) => {
+
+    const newCharacter = req.body.name;
+    const characterId = req.params.id;
+    const userId = req.user.id;
+
+    console.log('newCharacter from PUT router', newCharacter);
+    console.log('characterId from PUT router', characterId);
+    console.log('userId from PUT router', userId);
+
+    const sqlQuery = `
+    UPDATE "game"
+      SET "save_name"=$1
+      WHERE "id"=$2
+        AND "user_id"=$3;
+    `
+
+    const sqlValues = [newCharacter, characterId, userId];
+
+    pool.query(sqlQuery, sqlValues)
+        .then((dbRes) => {
+
+            res.sendStatus(200);
+
+        })
+        .catch((dbErr) => {
+
+            console.log('YOUR PUT ROUTE FAILED, YOU FAILED AHHHH', dbErr);
+            res.sendStatus(500);
+            
+        })
+
+  })
+
 module.exports = router;

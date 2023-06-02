@@ -92,6 +92,32 @@ function* fetchCharacterToEdit(action) {
     }
 }
 
+//PUT Sagas
+function* finalizeCharacterEdit(action) {
+
+    try {
+        const editedCharacterToFinalize = action.payload;
+        
+        const response = yield axios({
+
+            method: 'PUT',
+            url: `/character/${editedCharacterToFinalize.id}`,
+            data: editedCharacterToFinalize
+
+        })
+        yield put ({
+
+            type: 'FETCH_CHARACTERS'
+
+        })
+
+    } catch(err) {
+
+        console.log('finalizeCharacterEdit Sagas failed:', err);
+
+    }
+}
+
 
 function* characterSaga() {
 
@@ -99,6 +125,7 @@ function* characterSaga() {
     yield takeLatest('ADD_SAVE', addGame);
     yield takeLatest('DELETE_CHARACTER', deleteCharacter);
     yield takeLatest('FETCH_CHARACTER_TO_EDIT', fetchCharacterToEdit);
+    yield takeLatest('FINALIZE_CHARACTER_EDIT', finalizeCharacterEdit);
 
 }
 
