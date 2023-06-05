@@ -7,14 +7,14 @@ function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   const history = useHistory();
-  
+
   const toCharacter = (event) => {
     history.push('/character');
 
   };
 
   return (
-    <div className="container">
+    <div className="container formPanel">
       <h2>Welcome {user.username} to Prime Novel Academy!</h2>
       <p>Press Start to Begin!</p>
 

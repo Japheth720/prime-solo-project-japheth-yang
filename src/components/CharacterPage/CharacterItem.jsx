@@ -10,7 +10,7 @@ function CharacterItem({character}) {
 
     return (
        
-            <button onClick={handleEditClick}>EDIT</button>
+            <button className="btn_asLink" onClick={handleEditClick}>EDIT</button>
        
     )
 }

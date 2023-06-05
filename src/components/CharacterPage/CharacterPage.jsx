@@ -71,7 +71,7 @@ function CharacterPage() {
                     onChange={(event) => setGameSave(event.target.value)}
                 />
 
-                <button type='submit'>Add New Game</button>
+                <button className="btn" type='submit'>Add New Game</button>
             </form>
 
 
@@ -95,7 +95,7 @@ function CharacterPage() {
                                 <td><CharacterItem key={item.id} character={item}/>{item.save_name}</td>
                                 <td>{item.sum}/3</td>
                                 <td><CharacterGame key={item.id} character={item}/></td>
-                                <td><button onClick={() => {deleteCharacter(item)}}>DELETE</button></td>
+                                <td><button className="btn_asLink" onClick={() => {deleteCharacter(item)}}>DELETE</button></td>
                             </tr>
                         )
 

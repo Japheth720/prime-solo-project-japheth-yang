@@ -14,7 +14,7 @@ function CharacterGame({character}) {
 
     return (
     
-            <button onClick={handleSelectClick}>SELECT</button>
+            <button className="btn_asLink" onClick={handleSelectClick}>SELECT</button>
         
     )
 }
