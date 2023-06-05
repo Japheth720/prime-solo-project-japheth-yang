@@ -56,7 +56,7 @@ function RinPage() {
         <div>
             <h1 className='formPanelLong'>You found Rin!</h1>
             <form className="formPanel">
-                <h2>Rin asks "What's your favorite movie?"</h2>
+                <h2>Rin says "Hellooo {npcToRender.save_name}!!! Watch any movies lately?"</h2>
                 <button><img src={rin} /></button>
                 <button className='btn' onClick={handleReturnClick}>I don't watch movies.</button>
                 <button className='btn' onClick={addRinReputation}>I loved watching Spirited Away!</button>

@@ -56,10 +56,10 @@ function TakashiPage() {
         <div>
             <h1 className='formPanelLong'>You found Takakshi!</h1>
             <form className="formPanel">
-                <h2>Takashi asks "Do you like sports?"</h2>
+                <h2>Takashi asks "Hey {npcToRender.save_name}, Do you like sports?"</h2>
                 <button><img src={takashi} /></button>
                 <button className='btn' onClick={handleReturnClick}>No, I don't like Sports.</button>
-                <button className='btn' onClick={addTakashiReputation}>Of course I do!</button>
+                <button className='btn' onClick={addTakashiReputation}>Uhhh...Totally! Of course I do!</button>
             </form>
         </div>
     )

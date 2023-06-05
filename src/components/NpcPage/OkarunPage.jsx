@@ -56,7 +56,7 @@ function OkarunPage() {
         <div>
             <h1 className='formPanelLong'>You found Okarun!</h1>
             <form className="formPanel">
-                <h2>Okarun asks "What's your favorite Manga?"</h2>
+                <h2>Okarun bumps into you "Oh hi {npcToRender.save_name}... Do you uhh, like manga?"</h2>
                 <button><img src={okarun} /></button>
                 <button className='btn' onClick={handleReturnClick}>I can't read...</button>
                 <button className='btn' onClick={addOkarunReputation}>Dandadan is pretty good!</button>
