@@ -9,9 +9,9 @@ function CharacterItem({character}) {
     }
 
     return (
-        <li>
+       
             <button onClick={handleEditClick}>EDIT</button>
-        </li>
+       
     )
 }
 

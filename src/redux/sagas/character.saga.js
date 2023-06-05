@@ -118,6 +118,116 @@ function* finalizeCharacterEdit(action) {
     }
 }
 
+// GETting NPCs from specific game save
+function* fetchNpcs (action) {
+
+    try {
+
+        const npcToGet = action.payload;
+
+        const response = yield axios({
+
+            method: 'GET',
+            url: `/game/${npcToGet}`
+
+        })
+
+        const npcToRender = response.data;
+
+        yield put({
+
+            type: 'SEND_NPCS_TO_REDUCER',
+            payload: npcToRender
+
+        })
+    } catch (err) {
+
+        console.log('Could not send Sagas NPC GET properly ;(', err);
+
+    }
+
+}
+
+// Adding Takashi Reputation (PUT)
+function* addTakashiReputation(action) {
+
+    try {
+        const takashiId = action.payload;
+        console.log('takashiId:', takashiId)
+        
+        const response = yield axios({
+
+            method: 'PUT',
+            url: `/game/takashi/${takashiId}`,
+            data: takashiId
+
+        })
+        yield put ({
+
+            type: 'FETCH_NPCS'
+
+        })
+
+    } catch(err) {
+
+        console.log('addTakashiReputation Sagas failed:', err);
+
+    }
+}
+
+// Adding Rin Reputation (PUT)
+function* addRinReputation(action) {
+
+    try {
+        const rinId = action.payload;
+        console.log('rinId:', rinId)
+        
+        const response = yield axios({
+
+            method: 'PUT',
+            url: `/game/rin/${rinId}`,
+            data: rinId
+
+        })
+        yield put ({
+
+            type: 'FETCH_NPCS'
+
+        })
+
+    } catch(err) {
+
+        console.log('addRinReputation Sagas failed:', err);
+
+    }
+}
+
+function* addOkarunReputation(action) {
+
+    try {
+        const okarunId = action.payload;
+        console.log('okarunId:', okarunId)
+        
+        const response = yield axios({
+
+            method: 'PUT',
+            url: `/game/okarun/${okarunId}`,
+            data: okarunId
+
+        })
+        yield put ({
+
+            type: 'FETCH_NPCS'
+
+        })
+
+    } catch(err) {
+
+        console.log('addOkarunReputation Sagas failed:', err);
+
+    }
+}
+
 
 function* characterSaga() {
 
@@ -126,6 +236,10 @@ function* characterSaga() {
     yield takeLatest('DELETE_CHARACTER', deleteCharacter);
     yield takeLatest('FETCH_CHARACTER_TO_EDIT', fetchCharacterToEdit);
     yield takeLatest('FINALIZE_CHARACTER_EDIT', finalizeCharacterEdit);
+    yield takeLatest('FETCH_NPCS', fetchNpcs);
+    yield takeLatest('ADD_TAKASHI_REPUTATION', addTakashiReputation);
+    yield takeLatest('ADD_RIN_REPUTATION', addRinReputation);
+    yield takeLatest('ADD_OKARUN_REPUTATION', addOkarunReputation);
 
 }
 

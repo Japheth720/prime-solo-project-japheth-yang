@@ -1,13 +1,15 @@
 const characterReducer = (state = [], action) => {
 
     switch (action.type) {
-      case 'SET_CHARACTERS':
-        return action.payload;
-      default:
-        return state;
+        case 'SET_CHARACTERS':
+            return action.payload;
+        default:
+            return state;
     }
 
-  };
-  
-  export default characterReducer;
-  
+};
+
+
+
+
+export default characterReducer;

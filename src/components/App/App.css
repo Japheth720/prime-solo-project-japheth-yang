@@ -37,7 +37,7 @@ Container
   -o-background-size: cover;
   background-size: cover;
 
-  height: 1000px;
+  height:2800px;
 }
 
 /* --------------------------------------------------------------------------------
@@ -134,6 +134,28 @@ Form Treatment
 
   
   text-align: center;
+}
+
+.formPanelLong {
+  box-sizing: border-box;
+  width: 600px;
+  max-width: 100%;
+  padding: 10px;
+  margin:  0px auto 20px;
+  background-color: #ff9999b8;
+  border-radius: 40px;
+  /* box-shadow: 0 2px 2px rgb(255, 255, 255); */
+  outline: 5px solid #00000093;
+
+  
+  text-align: center;
+}
+
+.centerTable {
+
+  text-align: center;
+  align-content: center;
+
 }
 
 .username-css {

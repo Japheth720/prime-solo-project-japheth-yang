@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import CharacterItem from "./CharacterItem";
+import CharacterGame from "./CharacterGame";
 
 
 function CharacterPage() {
@@ -11,8 +12,8 @@ function CharacterPage() {
     const dispatch = useDispatch();
 
     const characters = useSelector((store) => store.characters);
+    const npcToRender = useSelector(store => store.game);
 
-  
 
     const history = useHistory();
 
@@ -58,7 +59,7 @@ function CharacterPage() {
 
     return (
 
-        <div>
+        <div className="formPanelLong">
             <h1>this is character page</h1>
 
             <form onSubmit={addGameSave}>
@@ -74,7 +75,7 @@ function CharacterPage() {
             </form>
 
 
-            <table>
+            <table className="centerTable">
 
                 <thead>
                     <tr>
@@ -93,7 +94,7 @@ function CharacterPage() {
                                 
                                 <td><CharacterItem key={item.id} character={item}/>{item.save_name}</td>
                                 <td>{item.sum}/3</td>
-                                <td><button>SELECT</button></td>
+                                <td><CharacterGame key={item.id} character={item}/></td>
                                 <td><button onClick={() => {deleteCharacter(item)}}>DELETE</button></td>
                             </tr>
                         )

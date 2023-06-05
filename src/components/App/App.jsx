@@ -22,7 +22,14 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import CharacterPage from '../CharacterPage/CharacterPage.jsx';
 import CharacterEditPage from '../CharacterEditPage/CharacterEditPage.jsx';
+import GamePage from '../GamePage/GamePage';
+
+import TakashiPage from '../NpcPage/TakashiPage';
+import RinPage from '../NpcPage/RinPage';
+import OkarunPage from '../NpcPage/OkarunPage';
+
 import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -108,11 +115,35 @@ function App() {
 
           </ProtectedRoute>
 
-          <Route exact path="/character/edit/:id">
+          <ProtectedRoute exact path="/character/edit/:id">
 
-          <CharacterEditPage />
+            <CharacterEditPage />
 
-        </Route>
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path ="/game/:id">
+
+              <GamePage />
+
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path ='/game/takashi/:id'>
+
+            <TakashiPage />
+
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path ='/game/rin/:id'>
+
+            <RinPage />
+
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path ='/game/okarun/:id'>
+
+            <OkarunPage />
+
+          </ProtectedRoute>
 
 
           <Route

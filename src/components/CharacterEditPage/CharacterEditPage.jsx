@@ -53,7 +53,7 @@ function CharacterEditPage() {
 
     return (
 
-        <div>
+        <div className='formPanel'>
             <h2>Change your Character Name!</h2>
             <h3>{characterToEdit.save_name}</h3>
             <form onSubmit={finalizeThingEdit}>
